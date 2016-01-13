@@ -54,8 +54,6 @@ tweets <- as.data.frame(tweets)
 mycorpus <- Corpus(VectorSource(tweets))
 BigramTokenizer <- function(x) NGramTokenizer(x, Weka_control(min = ngram_min, max = ngram_max))
 myDtm <- TermDocumentMatrix(mycorpus, control = list(tokenize = BigramTokenizer))
-#myDtm <- TermDocumentMatrix(mycorpus)
-#frequents <- findFreqTerms(myDtm, 100)
 sums <- apply(myDtm,1,sum)
 
 #Find the number of terms
